@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TechnicalAxos.ListViewPage"
+             IconImageSource="countries.png"
+             Title="Countries">
+    <Grid RowDefinitions="*">
+        <ListView
+            IsPullToRefreshEnabled="True"
+            HasUnevenRows="True"
+            ItemsSource="{Binding CountriesList}" 
+            RefreshCommand="{Binding RefreshData}" 
+            IsRefreshing="{Binding IsLoading}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid RowDefinitions="Auto" ColumnDefinitions="100,*" Margin="20,10" ColumnSpacing="10">
+                            <Image Source="{Binding Flags.Png}"/>
+                            <Grid RowDefinitions="Auto,Auto" Grid.Column="1" VerticalOptions="CenterAndExpand">
+                                <Label Text="{Binding Name.Common}"/>
+                                <Label Grid.Row="1" Text="{Binding Name.Official}"/>
+                            </Grid>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TechnicalAxos.MainPage"
+             IconImageSource="home.png"
+             Title="Inicio">
+    <Grid RowDefinitions="Auto,*" Margin="20">
+        <Frame HasShadow="True" IsClippedToBounds="True" Padding="0">
+            <Grid RowDefinitions="Auto,Auto,Auto,Auto">
+                <Grid BackgroundColor="Navy" Padding="20,10">
+                    <Label Text="{Binding Title}" FontSize="Large" FontAttributes="Bold" HorizontalTextAlignment="Center" TextColor="White"/>
+                </Grid>
+                <Image Grid.Row="1" Source="{Binding ImageUrl}"/>
+                <Grid Grid.Row="2" Padding="20">
+                    <Label Text="{Binding Description}"/>
+                </Grid>
+                <Button Grid.Row="3" Text="Selecciona una nueva imagen" Command="{Binding ChangeImage}" CornerRadius="0"/>
+            </Grid>
+        </Frame>
+    </Grid>
+</ContentPage>
